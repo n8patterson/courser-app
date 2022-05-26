@@ -49,18 +49,9 @@ export const EnrollmentPage = () => {
     <div className="App">
       <h2>Add Enrollment</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            name="title"
-            value={data}
-            onChange={(e) => setData(e.target.value)}
-            required
-            placeholder="Appointment Title"
-          />
-        </label>
         <br />
         <label>
+          Select Student
           <StudentPicker
             name="student"
             value={student}

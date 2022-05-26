@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const usersUrl = "http://192.168.100.47:5000/api";
 
-export const ClassesPage = () => {
+export const CoursesPage = () => {
   const [data, setData] = useState([]);
   const [userType, setUserType] = useState("/courses");
 

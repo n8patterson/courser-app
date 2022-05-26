@@ -3,7 +3,7 @@ import "./App.css";
 
 import { TeachersPage } from "./containers/teachersPage/TeachersPage";
 import { StudentsPage } from "./containers/studentsPage/StudentsPage";
-import { ClassesPage } from "./containers/classesPage/ClassesPage";
+import { CoursesPage } from "./containers/coursesPage/CoursesPage";
 import { EnrollmentPage } from "./containers/enrollmentPage/EnrollmentPage";
 
 const usersUrl = "http://192.168.100.47:5000/api";
@@ -33,7 +33,7 @@ function App() {
       <div>
         <button onClick={() => setActionType("/users")}>Teachers</button>
         <button onClick={() => setActionType("/customers")}>Students</button>
-        <button onClick={() => setActionType("/courses")}>Classes</button>
+        <button onClick={() => setActionType("/courses")}>Courses</button>
         <button onClick={() => setActionType("/enrollments")}>
           Enrollment
         </button>
@@ -43,7 +43,7 @@ function App() {
 
       {actionType === "/customers" && <StudentsPage />}
 
-      {actionType === "/courses" && <ClassesPage />}
+      {actionType === "/courses" && <CoursesPage />}
 
       {actionType === "/enrollments" && <EnrollmentPage />}
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { StudentPicker } from "../../components/studentPicker/StudentPicker";
-import { ClassPicker } from "../../components/classPicker/ClassPicker";
+import { CoursePicker } from "../../components/coursePicker/coursePicker";
 
 const usersUrl = "http://192.168.100.47:5000/api";
 const classesEndpoint = "/courses";
@@ -10,9 +10,13 @@ const studentsEndpoint = "/customers";
 export const EnrollmentPage = () => {
   const [data, setData] = useState([]);
   const [students, setStudents] = useState([]);
-  const [classes, setClasses] = useState([]);
   const [student, setStudent] = useState(
     students.length > 0 ? students[0].name : ""
+  );
+
+  const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState(
+    courses.length > 0 ? courses[0].name : ""
   );
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export const EnrollmentPage = () => {
   const getClassDataWithFetch = async () => {
     const response = await fetch(usersUrl + classesEndpoint);
     const jsonData = await response.json();
-    setClasses(jsonData);
+    setCourses(jsonData);
   };
 
   useEffect(() => {
@@ -58,6 +62,17 @@ export const EnrollmentPage = () => {
             students={students}
             onChange={(e) => setStudent(e.target.value)}
             placeholder="Pick student to add..."
+          />
+        </label>
+        <br />
+        <label>
+          Select Course
+          <CoursePicker
+            name="course"
+            value={course}
+            courses={courses}
+            onChange={(e) => setCourse(e.target.value)}
+            placeholder="Pick class to add..."
           />
         </label>
         <br />

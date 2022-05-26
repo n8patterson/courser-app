@@ -43,10 +43,25 @@ export const EnrollmentPage = () => {
     return <p>Loading...</p>;
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
     // TODO
     // Handle put to our api endpoint.....
+    e.preventDefault();
+
+    const studentId = student.name;
+    const courseId = course.title;
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ customerId: student._id, courseId: course._id }),
+    };
+
+    const response = await fetch(usersUrl + "/enrollments", requestOptions);
+    const data = await response.json();
+
+    setStudent("");
+    setCourse("");
   };
 
   return (
@@ -72,7 +87,7 @@ export const EnrollmentPage = () => {
             value={course}
             courses={courses}
             onChange={(e) => setCourse(e.target.value)}
-            placeholder="Pick class to add..."
+            placeholder="Pick course to add..."
           />
         </label>
         <br />

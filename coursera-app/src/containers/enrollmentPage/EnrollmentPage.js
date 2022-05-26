@@ -41,6 +41,8 @@ export const EnrollmentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // TODO
+    // Handle put to our api endpoint.....
   };
 
   return (

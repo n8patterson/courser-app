@@ -6,7 +6,7 @@ export const StudentPicker = ({ name, onChange, students }) => {
       </option>
       {students.map((student) => {
         return (
-          <option value={student} key={student._id}>
+          <option value={student._id} key={student._id}>
             {student.name}
           </option>
         );

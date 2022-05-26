@@ -48,13 +48,10 @@ export const EnrollmentPage = () => {
     // Handle put to our api endpoint.....
     e.preventDefault();
 
-    const studentId = student.name;
-    const courseId = course.title;
-
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ customerId: student._id, courseId: course._id }),
+      body: JSON.stringify({ customerId: student, courseId: course }),
     };
 
     const response = await fetch(usersUrl + "/enrollments", requestOptions);

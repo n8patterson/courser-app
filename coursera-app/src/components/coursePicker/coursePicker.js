@@ -6,7 +6,7 @@ export const CoursePicker = ({ name, onChange, courses }) => {
       </option>
       {courses.map((course) => {
         return (
-          <option value={course} key={course._id}>
+          <option value={course._id} key={course._id}>
             {course.title}
           </option>
         );
